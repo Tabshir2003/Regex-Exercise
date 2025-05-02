@@ -2,14 +2,7 @@ import re
 
 def fletchers_assistant(line, line_number):
     line = line.strip()
-    if (len(line) > 8 or len(line) < 6):
-        return str(line_number)
-    if not re.search(r'^>>', line):
-        return str(line_number)
-    if not re.search(r'>$', line):
-        return str(line_number)
-    line = line[2:-1]
-    if not re.fullmatch(r'-+', line):
+    if not re.fullmatch(r'^>>-{3,5}>$', line):
         return str(line_number)
     return None
 
